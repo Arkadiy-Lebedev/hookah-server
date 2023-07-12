@@ -35,6 +35,8 @@ app.use("/api/admin/action_table", require("./routes/admin-action-table"));
 app.use("/api/products", require("./routes/products"));
 app.use("/api/orders", require("./routes/orders"));
 app.use("/api/master/admin", require("./routes/master"));
+app.use("/api/master/tables", require("./routes/master-tables"));
+
 app.use("/api/auth", require("./routes/auth"));
 
 app.use("/api/client/booking", require("./routes/client"));
