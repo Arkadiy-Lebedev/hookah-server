@@ -88,6 +88,13 @@ const getCategories = async (req, res) => {
     }
 };
 
+const deleteProduct = async (req, res) => {
+  const { id } = req.body;
+   const resp = await connection.query(    
+       `DELETE FROM products   
+        WHERE id = ?`, [id]);   
+ res.status(200).json({data: resp[0], status: true})  
+} 
 
 
 
@@ -97,6 +104,7 @@ module.exports = {
   addProduct,
   getCategories,
   editProduct,
-  productInCategories
+  productInCategories,
+  deleteProduct
 };
 

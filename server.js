@@ -36,7 +36,7 @@ app.use("/api/products", require("./routes/products"));
 app.use("/api/orders", require("./routes/orders"));
 app.use("/api/master/admin", require("./routes/master"));
 app.use("/api/master/tables", require("./routes/master-tables"));
-
+app.use("/api/master/categories", require("./routes/master-categories"));
 app.use("/api/auth", require("./routes/auth"));
 
 app.use("/api/client/booking", require("./routes/client"));

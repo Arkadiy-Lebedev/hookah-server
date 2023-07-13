@@ -1,5 +1,5 @@
 const express = require("express");
-const { getAllProduct, addProduct, getCategories, editProduct, productInCategories, deleteProduct } = require("../controllers/products");
+const { editCategories, addCategories } = require("../controllers/admin-categories");
 const router = express.Router();
 const path = require('path')
 const multer = require("multer");
@@ -13,17 +13,14 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 
-router.get("/", getAllProduct);
-router.delete("/", deleteProduct);
-router.put("/", upload.fields([{
+
+router.put("/",upload.fields([{
     name: 'file', maxCount: 1
-}]), editProduct);
+}]), editCategories);
+  
 router.post("/",upload.fields([{
     name: 'file', maxCount: 1
-}]), addProduct);
-  
-router.get("/categories", getCategories);
-router.post("/categories", productInCategories);
+}]), addCategories);
 
 module.exports = router;
 
