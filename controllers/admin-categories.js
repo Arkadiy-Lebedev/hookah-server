@@ -51,12 +51,21 @@ const addCategories = async (req, res) => {
 
 };
 
+const delCategories = async (req, res) => {
+  const { id } = req.body;
+   const resp = await connection.query(    
+       `DELETE FROM categories   
+        WHERE id = ?`, [id]);   
+ res.status(200).json({data: resp[0], status: true})  
+} 
+
 
 
 
 
 module.exports = {
   editCategories,
-  addCategories
+  addCategories,
+  delCategories
 };
 
