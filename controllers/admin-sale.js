@@ -71,7 +71,7 @@ const addSale = async (req, res) => {
     return
   }
 
-  let linkProduct = `${process.env.EDDFILES}:${process.env.PORT}/static/${req.files.file[0].filename}`
+  let linkProduct = `${process.env.EDDFILES}/static/${req.files.file[0].filename}`
   console.log(linkProduct)
   try {   
  const resp = await connection.execute(

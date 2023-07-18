@@ -36,7 +36,7 @@ const productInCategories = async (req, res) => {
 const addProduct = async (req, res) => { 
   const { name, price, categories, description } = req.body
 
-  let linkProduct = `${process.env.EDDFILES}:${process.env.PORT}/static/${req.files.file[0].filename}`
+  let linkProduct = `${process.env.EDDFILES}/static/${req.files.file[0].filename}`
   console.log(linkProduct)
   try {   
  const resp = await connection.execute(
@@ -56,7 +56,7 @@ const editProduct = async (req, res) => {
   const {id, name, price, categories, description } = req.body
  let linkProduct
   if (req.files.file) {       
-      linkProduct = `${process.env.EDDFILES}:${process.env.PORT}/static/${req.files.file[0].filename}`
+      linkProduct = `${process.env.EDDFILES}/static/${req.files.file[0].filename}`
   } else {
      const resp = await connection.execute(
        `SELECT image_product FROM products WHERE id = ${id}`);      

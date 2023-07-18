@@ -8,7 +8,7 @@ const editCategories = async (req, res) => {
   const {id, type } = req.body
  let linkProduct
   if (req.files.file) {       
-      linkProduct = `${process.env.EDDFILES}:${process.env.PORT}/static/${req.files.file[0].filename}`
+      linkProduct = `${process.env.EDDFILES}/static/${req.files.file[0].filename}`
   } else {
      const resp = await connection.execute(
        `SELECT categories.image FROM categories WHERE id = ${id}`);      
@@ -38,7 +38,7 @@ const addCategories = async (req, res) => {
     return
   }
 
-  let linkProduct = `${process.env.EDDFILES}:${process.env.PORT}/static/${req.files.file[0].filename}`
+  let linkProduct = `${process.env.EDDFILES}/static/${req.files.file[0].filename}`
   console.log(linkProduct)
   try {   
  const resp = await connection.execute(
