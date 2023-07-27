@@ -8,7 +8,7 @@ const getSales = async (req, res) => {
 	try {
 		const sales = await connection.execute(
 			`SELECT * 
-         FROM sale `
+         FROM sale WHERE state = "active"`
 		)
 
 		res.status(200).json({ data: sales[0] })
