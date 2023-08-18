@@ -24,7 +24,7 @@ const getAllBooking = async (req, res) => {
 
 const getBookingDate = async (req, res) => {  
   const { date } = req.body
-
+console.log(date)
 
     try {    
      
@@ -113,11 +113,11 @@ const delBooking = async (req, res) => {
 
 // закрытие стола
 const succesBooking = async (req, res) => { 
-  const { id } = req.body
-  
+  const { id, sale, totalPrice, totalPriceSale} = req.body
+  console.log( req.body)
   try {
     const resp = await connection.execute(
-      `UPDATE booking SET status = ? WHERE id = ?`, ["succes", id]);        
+      `UPDATE booking SET status = ?, sales = ?, total = ?, total_price = ? WHERE id = ? `, ["succes", sale, totalPrice, totalPriceSale, id]);        
       res.status(200).json({data: resp})   
   } catch {
     res.status(500).json({ status: "error", message: "Не удалось получить список , повторите попытку познее стол" });
